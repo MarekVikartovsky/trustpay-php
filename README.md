@@ -21,11 +21,11 @@ This library provides communication between client and TrustPay online cards pay
 
 ### To create payment url you need to follow these steps.
 
-As first as you need to instantiate `MarekVikartovsky\TrustPay\TrustPay` class and provide information such as `project id`, `private key`, `notification url`, `return urls` and `locale`.<br>
+As first as you need to instantiate `\MarekVikartovsky\TrustPay\TrustPay` class and provide information such as `project id`, `private key`, `notification url`, `return urls` and `locale`.<br>
 `Cancel return URL`, `Error return URL` and `locale` do not need to be specified, they have predefined values.
 
 ```php
-$trustpay = new MarekVikartovsky\TrustPay\TrustPay(
+$trustpay = new \MarekVikartovsky\TrustPay\TrustPay(
 'PROJET_ID',
 'PRIVATE_KEY',
 'NOTIFICATION_URL'
@@ -56,10 +56,10 @@ return $trustpay->payment(\MarekVikartovsky\TrustPay\PaymentMethods\CardPayment:
 
 ### Notification handler
 
-As first as you need to instantiate `MarekVikartovsky\TrustPay\CallbackHandlers\NotificationHandler` class and pass into its constructor `private key` and `\Illuminate\Http\Request()` instance.
+As first as you need to instantiate `\MarekVikartovsky\TrustPay\CallbackHandlers\NotificationHandler` class and pass into its constructor `private key` and `\Illuminate\Http\Request()` instance.
 
 ```php
-$notification = new MarekVikartovsky\TrustPay\CallbackHandlers\NotificationHandler('XXXXX-PRIVATE-KEY-XXXXX', new \Illuminate\Http\Request())
+$notification = new \MarekVikartovsky\TrustPay\CallbackHandlers\NotificationHandler('XXXXX-PRIVATE-KEY-XXXXX', new \Illuminate\Http\Request())
 ```
 
 After that you should check if signature is valid. You can do this by calling method `hasValidSignature()`. This method return boolean value.
