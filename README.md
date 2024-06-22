@@ -36,17 +36,17 @@ $trustpay = new \MarekVikartovsky\TrustPay\TrustPay(
 );
 ```
 
-After that, you need to call a payment method, which creates payment object for specific payment method. Payment method is set by payment function parameter.<br>
+After that, you need to call a `payment` method, which creates payment object for specific payment method. The payment method is set by `payment` function parameter.<br>
 Available payment methods:<br>
-`\MarekVikartovsky\TrustPay\PaymentMethods\CardPayment::$paymentMethodName`
-`\MarekVikartovsky\TrustPay\PaymentMethods\Eps::$paymentMethodName`
-`\MarekVikartovsky\TrustPay\PaymentMethods\Giropay::$paymentMethodName`
-`\MarekVikartovsky\TrustPay\PaymentMethods\Sofort::$paymentMethodName`
+`\MarekVikartovsky\TrustPay\PaymentMethods\CardPayment::PAYMENT_METHOD_NAME`
+`\MarekVikartovsky\TrustPay\PaymentMethods\Eps::PAYMENT_METHOD_NAME`
+`\MarekVikartovsky\TrustPay\PaymentMethods\Giropay::PAYMENT_METHOD_NAME`
+`\MarekVikartovsky\TrustPay\PaymentMethods\Sofort::PAYMENT_METHOD_NAME`
 
 If you want to use `\MarekVikartovsky\TrustPay\PaymentMethods\CardPayment` method type, you have to call `setPaymentType` method with `Purchase` value.
 
 ```php
-return $trustpay->payment(\MarekVikartovsky\TrustPay\PaymentMethods\CardPayment::$paymentMethodName)
+return $trustpay->payment(\MarekVikartovsky\TrustPay\PaymentMethods\CardPayment::PAYMENT_METHOD_NAME)
 ->setAmount((float) 0)
 ->setCurrency('EUR')
 ->setReference('MERCHANT_REFERENCE')

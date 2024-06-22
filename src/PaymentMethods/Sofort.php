@@ -10,7 +10,7 @@ class Sofort extends PaymentMethod
      *
      * @var string
      */
-    public static string $paymentMethodName = 'Sofort';
+    public const PAYMENT_METHOD_NAME = 'Sofort';
 
     /**
      * Prepares request data.
@@ -20,7 +20,7 @@ class Sofort extends PaymentMethod
     public function prepareRequestBody(): array
     {
         return [
-            'PaymentMethod' => self::$paymentMethodName,
+            'PaymentMethod' => self::PAYMENT_METHOD_NAME,
             'MerchantIdentification' => [
                 'ProjectId' => $this->trustPay->projectID,
             ],

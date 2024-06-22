@@ -10,7 +10,7 @@ class Giropay extends PaymentMethod
      *
      * @var string
      */
-    public static string $paymentMethodName = 'Giropay';
+    public const PAYMENT_METHOD_NAME =  'Giropay';
 
     /**
      * Prepares request data.
@@ -20,7 +20,7 @@ class Giropay extends PaymentMethod
     public function prepareRequestBody(): array
     {
         return [
-            'PaymentMethod' => self::$paymentMethodName,
+            'PaymentMethod' => self::PAYMENT_METHOD_NAME,
             'MerchantIdentification' => [
                 'ProjectId' => $this->trustPay->projectID,
             ],

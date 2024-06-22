@@ -12,13 +12,6 @@ use Illuminate\Support\Facades\Http;
 abstract class PaymentMethod implements PaymentMethodContract
 {
     /**
-     * Payment method name.
-     *
-     * @var string
-     */
-    public static string $paymentMethodName = '';
-
-    /**
      * Payment request url.
      *
      * @var string

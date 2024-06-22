@@ -10,7 +10,7 @@ class Eps extends PaymentMethod
      *
      * @var string
      */
-    public static string $paymentMethodName = 'EPS';
+    public const PAYMENT_METHOD_NAME = 'EPS';
 
     /**
      * Prepares request data.
@@ -20,7 +20,7 @@ class Eps extends PaymentMethod
     public function prepareRequestBody(): array
     {
         return [
-            'PaymentMethod' => self::$paymentMethodName,
+            'PaymentMethod' => self::PAYMENT_METHOD_NAME,
             'MerchantIdentification' => [
                 'ProjectId' => $this->trustPay->projectID,
             ],

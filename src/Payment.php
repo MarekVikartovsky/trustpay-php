@@ -168,9 +168,9 @@ class Payment
     private function getPaymentMethodInstance(): PaymentMethod
     {
         return match ($this->paymentMethod) {
-            Giropay::$paymentMethodName => new Giropay($this->trustPay, $this),
-            Eps::$paymentMethodName => new Eps($this->trustPay, $this),
-            Sofort::$paymentMethodName => new Sofort($this->trustPay, $this),
+            Giropay::PAYMENT_METHOD_NAME => new Giropay($this->trustPay, $this),
+            Eps::PAYMENT_METHOD_NAME => new Eps($this->trustPay, $this),
+            Sofort::PAYMENT_METHOD_NAME => new Sofort($this->trustPay, $this),
             default => new CardPayment($this->trustPay, $this),
         };
     }
