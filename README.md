@@ -47,8 +47,8 @@ If you want to use `\MarekVikartovsky\TrustPay\PaymentMethods\CardPayment` metho
 
 ```php
 return $trustpay->payment(\MarekVikartovsky\TrustPay\PaymentMethods\CardPayment::PAYMENT_METHOD_NAME)
-->setAmount((float) 0)
-->setCurrency('EUR')
+->setAmount((float) 10)
+->setCurrency(\MarekVikartovsky\TrustPay\Enums\CurrencyEnum::EUR)
 ->setReference('MERCHANT_REFERENCE')
 ->setPaymentType('Purchase')
 ->getPaymentUrl();

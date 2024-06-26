@@ -27,7 +27,7 @@ class Giropay extends PaymentMethod
             'PaymentInformation' => [
                 'Amount' => [
                     'Amount' => $this->payment->getAmount(),
-                    'Currency' => $this->payment->getCurrency(),
+                    'Currency' => $this->payment->getCurrency()->name,
                 ],
                 'Localization' => $this->trustPay->language,
                 'References' => [

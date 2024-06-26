@@ -3,6 +3,7 @@
 namespace MarekVikartovsky\TrustPay;
 
 use Illuminate\Http\Client\ConnectionException;
+use MarekVikartovsky\TrustPay\Enums\CurrencyEnum;
 use MarekVikartovsky\TrustPay\Exceptions\TrustPayPaymentRequestException;
 use MarekVikartovsky\TrustPay\PaymentMethods\CardPayment;
 use MarekVikartovsky\TrustPay\PaymentMethods\Eps;
@@ -22,10 +23,10 @@ class Payment
     /**
      * Currency of the payment (same as currency of merchant account)
      *
-     * @var string
+     * @var CurrencyEnum
      * @see https://doc.trustpay.eu/#codes-cur
      */
-    private string $currency = '';
+    private CurrencyEnum $currency;
 
     /**
      * Reference (merchant’s payment identification)
@@ -79,13 +80,13 @@ class Payment
     /**
      * Currency setter.
      *
-     * @param string $currency
+     * @param CurrencyEnum $currency
      *
      * @return $this
      */
-    public function setCurrency(string $currency): static
+    public function setCurrency(CurrencyEnum $currency): static
     {
-        $this->currency = mb_strtoupper($currency);
+        $this->currency = $currency;
 
         return $this;
     }
@@ -93,9 +94,9 @@ class Payment
     /**
      * Currency getter.
      *
-     * @return string
+     * @return CurrencyEnum
      */
-    public function getCurrency(): string
+    public function getCurrency(): CurrencyEnum
     {
         return $this->currency;
     }
