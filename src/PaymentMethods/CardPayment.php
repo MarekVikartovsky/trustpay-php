@@ -36,6 +36,7 @@ class CardPayment extends PaymentMethod
                 'CardTransaction' => [
                     'PaymentType' => $this->payment->getPaymentType(),
                 ],
+                'IsRedirect' => $this->payment->isRedirectAllowed(),
             ],
             'CallbackUrls' => $this->callbackUrls(),
         ];

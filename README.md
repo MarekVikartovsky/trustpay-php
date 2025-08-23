@@ -54,6 +54,13 @@ return $trustpay->payment(\MarekVikartovsky\TrustPay\PaymentMethods\CardPayment:
 ->getPaymentUrl();
 ```
 
+If the payment gateway is not loaded inside an iframe. You have to call `allowRedirect` method on payment object.
+```php
+return $trustpay->payment(\MarekVikartovsky\TrustPay\PaymentMethods\CardPayment::PAYMENT_METHOD_NAME)
+->allowRedirect()
+->getPaymentUrl();
+```
+
 ### Notification handler
 
 As first as you need to instantiate `\MarekVikartovsky\TrustPay\CallbackHandlers\NotificationHandler` class and pass into its constructor `private key` and `\Illuminate\Http\Request()` instance.

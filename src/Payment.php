@@ -43,6 +43,13 @@ class Payment
     private ?string $paymentType;
 
     /**
+     * Information that the payment gateway is not loaded inside an iframe
+     *
+     * @var bool
+     */
+    private bool $isRedirect = false;
+
+    /**
      * @param TrustPay $trustPay
      * @param string $paymentMethod
      * @param string $accessToken
@@ -159,6 +166,30 @@ class Payment
     public function getPaymentUrl(): string
     {
         return $this->getPaymentMethodInstance()->handle();
+    }
+
+    /**
+     * Set information that the payment gateway is not loaded inside an iframe.
+     *
+     * @return Payment
+     */
+    public function allowRedirect(): static
+    {
+        $this->isRedirect = true;
+
+        return $this;
+    }
+
+    /**
+     * Returns information if payment gateway is loaded inside an iframe.
+     * TRUE = gateway is not loaded inside an iframe
+     * FALSE = gateway is loaded inside an iframe
+     *
+     * @return bool
+     */
+    public function isRedirectAllowed(): bool
+    {
+        return $this->isRedirect;
     }
 
     /**

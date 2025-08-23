@@ -33,6 +33,7 @@ class Sofort extends PaymentMethod
                 'References' => [
                     'MerchantReference' => $this->payment->getReference(),
                 ],
+                'IsRedirect' => $this->payment->isRedirectAllowed(),
             ],
             'CallbackUrls' => $this->callbackUrls(),
         ];
