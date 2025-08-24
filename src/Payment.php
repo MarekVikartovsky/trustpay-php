@@ -9,6 +9,7 @@ use MarekVikartovsky\TrustPay\PaymentMethods\CardPayment;
 use MarekVikartovsky\TrustPay\PaymentMethods\Eps;
 use MarekVikartovsky\TrustPay\PaymentMethods\Giropay;
 use MarekVikartovsky\TrustPay\PaymentMethods\PaymentMethod;
+use MarekVikartovsky\TrustPay\PaymentMethods\SepaCreditTransfer;
 use MarekVikartovsky\TrustPay\PaymentMethods\Sofort;
 
 class Payment
@@ -203,6 +204,7 @@ class Payment
             Giropay::PAYMENT_METHOD_NAME => new Giropay($this->trustPay, $this),
             Eps::PAYMENT_METHOD_NAME => new Eps($this->trustPay, $this),
             Sofort::PAYMENT_METHOD_NAME => new Sofort($this->trustPay, $this),
+            SepaCreditTransfer::PAYMENT_METHOD_NAME => new SepaCreditTransfer($this->trustPay, $this),
             default => new CardPayment($this->trustPay, $this),
         };
     }

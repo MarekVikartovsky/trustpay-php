@@ -7,6 +7,7 @@ This library provides communication between client and TrustPay online cards pay
     <li>EPS</li>
     <li>Sofort</li>
     <li>Giropay</li>
+    <li>SepaCreditTransfer</li>
 </ul>
 
 # Requirements
@@ -42,6 +43,7 @@ Available payment methods:<br>
 `\MarekVikartovsky\TrustPay\PaymentMethods\Eps::PAYMENT_METHOD_NAME`
 `\MarekVikartovsky\TrustPay\PaymentMethods\Giropay::PAYMENT_METHOD_NAME`
 `\MarekVikartovsky\TrustPay\PaymentMethods\Sofort::PAYMENT_METHOD_NAME`
+`\MarekVikartovsky\TrustPay\PaymentMethods\SepaCreditTransfer::PAYMENT_METHOD_NAME`
 
 If you want to use `\MarekVikartovsky\TrustPay\PaymentMethods\CardPayment` method type, you have to call `setPaymentType` method with `Purchase` value.
 
