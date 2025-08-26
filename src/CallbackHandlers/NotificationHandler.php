@@ -83,7 +83,7 @@ class NotificationHandler
     }
 
     /**
-     * Payment status.
+     * Payment status reason code.
      *
      * @return string|null
      */
@@ -93,13 +93,23 @@ class NotificationHandler
     }
 
     /**
-     * Payment status.
+     * Payment status reject reason.
      *
      * @return string|null
      */
     public function getStatusRejectReason(): ?string
     {
         return $this->request->json('PaymentInformation.StatusReasonInformation.Reason.RejectReason');
+    }
+
+    /**
+     * Payment status reason merchant advice code.
+     *
+     * @return string|null
+     */
+    public function getStatusReasonMerchantAdviceCode(): ?string
+    {
+        return $this->request->json('PaymentInformation.StatusReasonInformation.Reason.MerchantAdviceCode');
     }
 
     /**
@@ -150,6 +160,16 @@ class NotificationHandler
     public function getMerchantReference(): ?string
     {
         return $this->request->json('PaymentInformation.References.MerchantReference');
+    }
+
+    /**
+     * Payment end to end reference.
+     *
+     * @return string|null
+     */
+    public function getEndToEnd(): ?string
+    {
+        return $this->request->json('PaymentInformation.References.EndToEnd');
     }
 
     /**
@@ -354,9 +374,11 @@ class NotificationHandler
             $this->getAmount(),
             $this->getCurrency(),
             $this->getMerchantReference(),
+            $this->getEndToEnd(),
             $this->getStatus(),
             $this->getStatusReasonCode(),
             $this->getStatusRejectReason(),
+            $this->getStatusReasonMerchantAdviceCode(),
             $this->getCreditDebitIndicator(),
             $this->getPaymentMethod(),
             $this->getCreditorName() ?? $this->getDebtorName(),
@@ -367,9 +389,9 @@ class NotificationHandler
             $this->getDebtorAccountOther(),
             $this->getPaymentRequestId(),
             $this->getPaymentId(),
+            $this->getClearingSystemReferenceReference(),
             $this->getOriginalPaymentRequestIdReference(),
             $this->getOriginalPaymentIdReference(),
-            $this->getClearingSystemReferenceReference(),
             $this->getCardMaskedPan(),
             $this->getCardExpiryDate(),
             $this->getCardToken(),
